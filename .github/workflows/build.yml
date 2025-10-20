@@ -1,4 +1,4 @@
-name: Build Nix
+name: Nix Build
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
 #      - 'main'
 
 jobs:
-  build-nix:
+  nix-build:
     name: Build Nix Derivations
     runs-on: ubuntu-latest
     steps:
@@ -19,4 +19,4 @@ jobs:
 
       - name: Build build-eif
         working-directory: build-eif
-        run: nix build .
+        run: nix-build build-eif.nix
