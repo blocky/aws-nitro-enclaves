@@ -1,0 +1,19 @@
+on:
+  push:
+#    branches:
+#      - 'main'
+
+jobs:
+  build-nix:
+    name: Build Nix Derivations
+    runs-on: ubuntu-latest
+    steps:
+      - uses: cachix/install-nix-action@v31
+      - uses: cachix/cachix-action@v16
+        with:
+          name: blocky-public
+          authToken: ${{ secrets.GH_ACTIONS_CACHIX_MATTEO_BLOCKY_PUBLIC_READ_WRITE }}
+
+      - name: Build build-eif
+        working-directory: build-eif
+        run: nix build .
