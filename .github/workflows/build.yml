@@ -15,8 +15,8 @@ jobs:
       - uses: cachix/install-nix-action@v31
       - uses: cachix/cachix-action@v16
         with:
-          name: blocky-public
-          authToken: ${{ secrets.GH_ACTIONS_CACHIX_MATTEO_BLOCKY_PUBLIC_READ_WRITE }}
+          name: blocky
+          authToken: ${{ secrets.GHACTIONS_CACHIX_BLOCKY_PUBLIC_CACHE_WRITE_AUTH_TOKEN }}
 
       - name: Build build-eif
         working-directory: build-eif
